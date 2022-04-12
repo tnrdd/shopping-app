@@ -39,7 +39,7 @@ export default function Cart({ setViewCart }) {
               </div>
               <br />
               <div className={styles.actions}>
-                <div class={styles.update}>
+                <div className={styles.update}>
                   <button
                     onClick={() => dispatch({ type: "SUB", id: product.id })}
                   >
