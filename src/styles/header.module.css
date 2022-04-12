@@ -1,0 +1,12 @@
+.logo,
+.cart {
+  cursor: pointer;
+}
+
+.cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: var(--space-small);
+}
