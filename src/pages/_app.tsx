@@ -8,11 +8,11 @@ export const CartContext = createContext();
 
 export default function App({ Component, pageProps }: AppProps) {
   const [cart, dispatch] = useReducer(reducer, []);
+
   return (
-    <CartContext.Provider value={{cart, dispatch}}>
+    <CartContext.Provider value={{ cart, dispatch }}>
       <Layout>
-        <Head>
-        </Head>
+        <Head></Head>
         <Component {...pageProps} />
       </Layout>
     </CartContext.Provider>
