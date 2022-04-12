@@ -1,5 +1,6 @@
-import { GetStaticProps, GetStaticPaths } from "next";
 import { useContext } from "react";
+import { GetStaticProps, GetStaticPaths } from "next";
+import Image from "next/image";
 import { CartContext } from "../_app";
 import Head from "next/head";
 import Layout from "../../components/layout";
@@ -46,15 +47,25 @@ export default function Product({
         <title>{product.title}</title>
         <meta name="description" content={`${product.description}`} />
       </Head>
-      {product.id}
-      <br />
-      {product.title}
-      <br />
-      {product.price}
-      <br />
-      <button
-        onClick={() => dispatch({ type: "ADD", product: product })}
-      >Buy</button>
+      <div className={styles.product}>
+        <Image
+          src={product.image}
+          alt={product.title}
+          width={600}
+          height={600}
+        />
+        <div className={styles.info}>
+          <div className={styles.name}>
+            {product.title}
+            <span className={styles.price}>${product.price}</span>
+          </div>
+          <button onClick={() => dispatch({ type: "ADD", product: product })}>
+            Add to cart
+          </button>
+          <h2>Description</h2>
+          <span>{product.description}</span>
+        </div>
+      </div>
     </>
   );
 }
