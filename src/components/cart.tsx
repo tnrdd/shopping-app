@@ -1,14 +1,15 @@
-import { useState, useContext } from "react";
+import { useState, useContext, FC } from "react";
 import { CartContext } from "../pages/_app";
 import Image from "next/image";
 import Head from "next/head";
 import Link from "next/link";
+import { Product } from "../types/product";
 import styles from "../styles/cart.module.css";
 
-export default function Cart({ setViewCart }) {
-  const { cart, dispatch } = useContext(CartContext);
+export default function Cart({ setViewCart }: any) {
+  const { cart, dispatch }: any = useContext(CartContext);
 
-  const calcTotal = (cart) => {
+  const calcTotal = (cart: Product[]) => {
     let total: number = 0;
     cart.forEach((product) => (total += product.price * product.quantity));
     return total;
@@ -29,7 +30,7 @@ export default function Cart({ setViewCart }) {
           />
         </div>
         {cart.length !== 0 ? (
-          cart.map((product) => (
+          cart.map((product: Product) => (
             <div className={styles.product} key={product.id}>
               <div className={styles.name}>
                 <Link href={`/products/${product.id}`}>
@@ -64,7 +65,9 @@ export default function Cart({ setViewCart }) {
           <span className={styles.empty}> Cart is empty!</span>
         )}
         {cart.length! !== 0 && (
-          <span className={styles.total}>Total: ${calcTotal(cart as [])}</span>
+          <span className={styles.total}>
+            Total: ${calcTotal(cart as Product[])}
+          </span>
         )}
       </div>
     </>

@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import { GetStaticProps } from "next";
 import { CartContext } from "./_app";
+import { Product } from "../types/product";
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
@@ -8,21 +9,12 @@ import Layout from "../components/layout";
 import styles from "../styles/products.module.css";
 
 export const getStaticProps: GetStaticProps = async () => {
-  const res = await fetch("https://fakestoreapi.com/products");
-  const products = await res.json();
+  const res: Response = await fetch("https://fakestoreapi.com/products");
+  const products: Product[] = await res.json();
   return { props: { products } };
 };
 
-export default function Home({
-  products,
-}: {
-  id: number;
-  title: string;
-  price: number;
-  category: string;
-  description: string;
-  image: string;
-}[]) {
+export default function Home({ products }: { products: Product[] }) {
   const { dispatch } = useContext(CartContext);
 
   return (
@@ -32,10 +24,7 @@ export default function Home({
       </Head>
       <div className={styles.products}>
         {products.map((product) => (
-          <div
-            className={styles.card}
-            key={product.id}
-          >
+          <div className={styles.card} key={product.id}>
             <Image
               src={product.image}
               alt={product.title}

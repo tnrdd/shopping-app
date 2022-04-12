@@ -1,14 +1,15 @@
 import { useContext } from "react";
 import { GetStaticProps, GetStaticPaths } from "next";
 import Image from "next/image";
+import { Product } from "../../types/product";
 import { CartContext } from "../_app";
 import Head from "next/head";
 import Layout from "../../components/layout";
 import styles from "../../styles/products.module.css";
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const res = await fetch("https://fakestoreapi.com/products");
-  const products = await res.json();
+  const res: Response = await fetch("https://fakestoreapi.com/products");
+  const products: Product[] = await res.json();
   const paths = products.map((product) => {
     return {
       params: {
@@ -21,25 +22,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const res = await fetch(
-    `https://fakestoreapi.com/products/${params.id as string}`
+  const res: Response = await fetch(
+    `https://fakestoreapi.com/products/${params.id}`
   );
   const product = await res.json();
   return { props: { product } };
 };
 
-export default function Product({
-  product,
-}: {
-  product: {
-    id: string;
-    name: string;
-    category: string;
-    price: number;
-    description: string;
-    image: string;
-  };
-}) {
+export default function ProductPage({ product }: { product: Product }) {
   const { dispatch } = useContext(CartContext);
   return (
     <>
@@ -48,12 +38,13 @@ export default function Product({
         <meta name="description" content={`${product.description}`} />
       </Head>
       <div className={styles.product}>
+        {
         <Image
           src={product.image}
           alt={product.title}
           width={600}
           height={600}
-        />
+          />}
         <div className={styles.info}>
           <div className={styles.name}>
             {product.title}
