@@ -42,7 +42,7 @@ export default function Cart({ setViewCart }: any) {
               <div className={styles.actions}>
                 <div className={styles.update}>
                   <button
-                    onClick={() => dispatch({ type: "SUB", id: product.id })}
+                    onClick={() => dispatch({ type: "SUB", product: product})}
                   >
                     -
                   </button>
@@ -54,7 +54,7 @@ export default function Cart({ setViewCart }: any) {
                   </button>
                 </div>
                 <button
-                  onClick={() => dispatch({ type: "REMOVE", id: product.id })}
+                  onClick={() => dispatch({ type: "REMOVE", product: product})}
                 >
                   Remove
                 </button>

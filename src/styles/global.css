@@ -46,7 +46,7 @@ img {
 button {
   border: 0;
   border-radius: 8px;
-  font-family: Roboto;
+  font-family: Helvetica, Roboto;
   font-weight:bold;
   padding:var(--space-small);
 }
