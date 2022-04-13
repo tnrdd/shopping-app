@@ -1,4 +1,4 @@
-import { useState, useContext, FC } from "react";
+import { useState, useContext } from "react";
 import { CartContext } from "../pages/_app";
 import Image from "next/image";
 import Head from "next/head";
@@ -6,7 +6,7 @@ import Link from "next/link";
 import { Product } from "../types/product";
 import styles from "../styles/cart.module.css";
 
-export default function Cart({ setViewCart }: any) {
+export default function Cart({ setViewCart }) {
   const { cart, dispatch }: any = useContext(CartContext);
 
   const calcTotal = (cart: Product[]) => {
@@ -42,7 +42,7 @@ export default function Cart({ setViewCart }: any) {
               <div className={styles.actions}>
                 <div className={styles.update}>
                   <button
-                    onClick={() => dispatch({ type: "SUB", product: product})}
+                    onClick={() => dispatch({ type: "SUB", product: product })}
                   >
                     -
                   </button>
@@ -54,7 +54,7 @@ export default function Cart({ setViewCart }: any) {
                   </button>
                 </div>
                 <button
-                  onClick={() => dispatch({ type: "REMOVE", product: product})}
+                  onClick={() => dispatch({ type: "REMOVE", product: product })}
                 >
                   Remove
                 </button>

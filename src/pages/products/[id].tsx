@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import { GetStaticProps, GetStaticPaths } from "next";
+import Head from "next/head";
 import Image from "next/image";
 import { Product } from "../../types/product";
 import { CartContext } from "../_app";
-import Head from "next/head";
 import Layout from "../../components/layout";
 import styles from "../../styles/products.module.css";
 
@@ -39,12 +39,13 @@ export default function ProductPage({ product }: { product: Product }) {
       </Head>
       <div className={styles.product}>
         {
-        <Image
-          src={product.image}
-          alt={product.title}
-          width={600}
-          height={600}
-          />}
+          <Image
+            src={product.image}
+            alt={product.title}
+            width={600}
+            height={600}
+          />
+        }
         <div className={styles.info}>
           <div className={styles.name}>
             {product.title}

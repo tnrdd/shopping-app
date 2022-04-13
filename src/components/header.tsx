@@ -1,13 +1,13 @@
 import { useContext, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 import { Product } from "../types/product";
-import Cart from "./cart";
 import { CartContext } from "../pages/_app";
+import Cart from "./cart";
 import styles from "../styles/header.module.css";
 
 export default function Header() {
-  const [viewCart, setViewCart]: any = useState(false);
+  const [viewCart, setViewCart] = useState(false);
   const { cart, dispatch }: any = useContext(CartContext);
 
   return (

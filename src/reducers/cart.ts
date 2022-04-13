@@ -1,7 +1,7 @@
 import { useReducer } from "react";
-import {State, Action } from "../types/reducer";
+import { State, Action } from "../types/reducer";
 
-export default function reducer(state:State, action:Action) {
+export default function reducer(state: State, action: Action) {
   switch (action.type) {
     case "ADD":
       if (!state.some((product) => product.id === action.product.id)) {
