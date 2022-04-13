@@ -16,8 +16,13 @@
   box-sizing: border-box;
 }
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 body {
-  padding:0;
+  padding: 0;
   margin: 0;
   background: var(--off-white);
   color: var(--dark);
@@ -32,11 +37,11 @@ section {
 
 a {
   text-decoration: none;
-  color:var(--dark);
+  color: var(--dark);
 }
 
 a:hover {
-  opacity:80%;  
+  opacity: 80%;
 }
 
 img {
@@ -47,13 +52,13 @@ button {
   border: 0;
   border-radius: 8px;
   font-family: Helvetica, Roboto;
-  font-weight:bold;
-  padding:var(--space-small);
+  font-weight: bold;
+  padding: var(--space-small);
 }
 
-button:hover{
-  cursor:pointer;
-  opacity:80%;
+button:hover {
+  cursor: pointer;
+  opacity: 80%;
 }
 
 header {
@@ -72,11 +77,14 @@ main {
 }
 
 footer {
+  position:absolute;
+  bottom:0;
+  width:100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   align-content: center;
   background: var(--dark);
   color: var(--off-white);
-  font-size:var(--font-size-small);
+  font-size: var(--font-size-small);
 }
