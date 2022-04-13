@@ -6,9 +6,7 @@ enum ActionKind {
   REMOVE = "REMOVE",
 }
 
-export interface State {
-  cart: Product[];
-}
+export type State = Product[];
 
 export interface Action {
   type: ActionKind;
