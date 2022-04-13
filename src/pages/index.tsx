@@ -21,6 +21,10 @@ export default function Home({ products }: { products: Product[] }) {
     <>
       <Head>
         <title>Shop</title>
+        <meta 
+        name="description"
+        content="Shopping app"
+        />
       </Head>
       <div className={styles.products}>
         {products.map((product) => (
